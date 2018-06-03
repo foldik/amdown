@@ -34,8 +34,9 @@ exports.execute = function () {
   const indexTemplate = config.indexTemplate;
 
   fileUtils.cleanDirSync( outDir );
-
-  fileUtils.copyDirStructureSyc( inDir, outDir, ( resultDir ) => console.log( `Created ${resultDir} directory` ) );
+  fileUtils.copyDirStructureSyc( inDir, outDir );
+  fs.mkdirSync( outDir + '/static' );
+  fileUtils.copyAll( 'static', outDir + '/static' );
 
   fileUtils.getFilesSync( inDir ).forEach( ( file ) => {
     const sourceFile = inDir + '/' + file;

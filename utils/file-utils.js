@@ -30,10 +30,25 @@ exports.copyDirStructureSyc = function ( sourceDir, targetDir, afterCopyCallback
       const resultDirectory = targetDir + '/' + currentFile.replace( sourceDir + '/', '' );
       if ( fs.statSync( currentFile ).isDirectory() && !fs.existsSync( resultDirectory ) ) {
         fs.mkdirSync( resultDirectory );
-        if ( afterCopyCallback ) {
-          afterCopyCallback( resultDirectory );
-        }
         copyDirectory( currentFile );
+      }
+    } );
+  };
+
+  copyDirectory( sourceDir );
+};
+
+exports.copyAll = function ( sourceDir, targetDir, afterCopyCallback ) {
+  function copyDirectory( dir ) {
+    const files = fs.readdirSync( dir );
+    files.forEach( function ( file ) {
+      const currentFile = dir + '/' + file;
+      const resultFile = targetDir + '/' + currentFile.replace( sourceDir + '/', '' );
+      if ( fs.statSync( currentFile ).isDirectory() && !fs.existsSync( resultFile ) ) {
+        fs.mkdirSync( resultFile );
+        copyDirectory( currentFile );
+      } else if ( fs.statSync( currentFile ).isFile() ) {
+        fs.copyFileSync( currentFile, resultFile );
       }
     } );
   };
