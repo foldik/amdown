@@ -30,7 +30,9 @@ exports.copyDirStructureSyc = function ( sourceDir, targetDir, afterCopyCallback
       const resultDirectory = targetDir + '/' + currentFile.replace( sourceDir + '/', '' );
       if ( fs.statSync( currentFile ).isDirectory() && !fs.existsSync( resultDirectory ) ) {
         fs.mkdirSync( resultDirectory );
-        afterCopyCallback( resultDirectory );
+        if ( afterCopyCallback ) {
+          afterCopyCallback( resultDirectory );
+        }
         copyDirectory( currentFile );
       }
     } );

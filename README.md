@@ -4,4 +4,4 @@ The general purpose of this project is to help you to create awesome teaching ma
 
 ## Documentation
 
-You can find the documentation [here](https://foldik.github.io/teach/dist/index.html).
+You can find the documentation [here](https://foldik.github.io/teach/docs/dist/index.html).

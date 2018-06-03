@@ -1,0 +1,58 @@
+<h1>
+<span> Getting started</span>
+</h1>
+<p>
+<span>In this example we will build a simple Hello World</span><span>!</span><span> page.</span>
+</p>
+<h2>
+<span> Prerequests</span>
+</h2>
+<p>
+<span><strong>Teach</strong></span><span> is written in </span><a href="https://nodejs.org/en/">NodeJS</a><span>. Make sure to install it before you proceed.</span>
+</p>
+<p>
+<span>We use </span><a href="https://git-scm.com/">Git</a><span> later to download </span><span><strong>Teach</strong></span><span>.</span>
+</p>
+<h2>
+<span> Installation</span>
+</h2>
+<p>
+<span>Download from github:</span>
+</p>
+<div>
+<pre><code>git clone https://github.com/foldik/teach.git </code></pre></div>
+<p>
+<span>Install npm dependencies and link the package:</span>
+</p>
+<div>
+<pre><code>cd teach
+
+npm install
+
+npm link </code></pre></div>
+<p>
+<span>Now you can use the </span><code>teach</code><span> command.</span>
+</p>
+<h2>
+<span> Hello World</span><span>!</span>
+</h2>
+<p>
+<span><strong>1.</strong></span><span> Initialize a new project.</span>
+</p>
+<div>
+<pre><code>teach init hello-world && cd hello-world </code></pre></div>
+<p>
+<span><strong>2.</strong></span><span> Build the project.</span>
+</p>
+<div>
+<pre><code>teach build </code></pre></div>
+<p>
+<span><strong>3.</strong></span><span> Show your website.</span>
+</p>
+<div>
+<pre><code class="bash">npm install http-server -g </code></pre></div>
+<div>
+<pre><code class="bash">http-server ./dist </code></pre></div>
+<h5>
+<span> You did it</span><span>!</span><span> Open </span><a href="http://localhost:8080">http://localhost:8080</a><span> in the browser</span><span>!</span>
+</h5>

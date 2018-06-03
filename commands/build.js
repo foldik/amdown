@@ -1,6 +1,6 @@
 const fs = require( 'fs' );
 const path = require( 'path' );
-const fileUtils = require( '../utils/file-utils.js' )
+const fileUtils = require( '../utils/file-utils.js' );
 const mParser = require( '../parser/m-parser' );
 const mRenderer = require( '../renderer/html-renderer' );
 const menuRenderer = require( '../renderer/menu-renderer' );
@@ -25,15 +25,18 @@ function toHtml( inputFile, outputFile ) {
     .catch( ( err ) => console.error( err.message ) );
 }
 
-exports.execute = function ( options ) {
-  const inDir = options.inDir || 'pages';
-  const outDir = options.outDir || 'dist';
-  const menu = options.menuConfig || './menu.json';
-  const indexTemplate = options.indexTemplate || path.join( __dirname, 'index.html' );
-  const skipDefaultStylesAndScripts = options.skipDefaultStylesAndScripts || false;
+exports.execute = function () {
+  const config = JSON.parse( fs.readFileSync( './teach.json', 'utf8' ) );
+
+  const inDir = config.docsFolder;
+  const outDir = config.distFolder;
+  const menu = config.menu;
+  const indexTemplate = config.indexTemplate;
 
   fileUtils.cleanDirSync( outDir );
+
   fileUtils.copyDirStructureSyc( inDir, outDir, ( resultDir ) => console.log( `Created ${resultDir} directory` ) );
+
   fileUtils.getFilesSync( inDir ).forEach( ( file ) => {
     const sourceFile = inDir + '/' + file;
     if ( file.endsWith( '.md' ) ) {
@@ -48,29 +51,12 @@ exports.execute = function ( options ) {
     }
   } );
 
-  if ( !skipDefaultStylesAndScripts && fs.existsSync( menu ) ) {
-    fs.readFile( menu, 'utf8', function ( err, data ) {
+  fs.readFile( indexTemplate, 'utf8', function ( err, data ) {
+    if ( err ) throw err;
+    const indexContent = data.replace( 'MENU', menuRenderer.render( menu ) );
+    fs.writeFile( outDir + '/index.html', indexContent, 'utf-8', function ( err ) {
       if ( err ) throw err;
-      const menuContent = menuRenderer.render( JSON.parse( data ) );
-      fs.readFile( indexTemplate, 'utf8', function ( err, data ) {
-        if ( err ) throw err;
-        const indexContent = data.replace( 'MENU', menuContent );
-        fs.writeFile( outDir + '/index.html', indexContent, 'utf-8', function ( err ) {
-          if ( err ) throw err;
-          console.log( `Saved ${outDir}/index.html` );
-        } );
-      } );
+      console.log( `Saved ${outDir}/index.html` );
     } );
-    const defaultTemplateDirectory = path.join( __dirname, '..', 'default-templates' );
-    fileUtils.copyDirStructureSyc( defaultTemplateDirectory, outDir, ( resultDir ) => console.log( `Created scripts and styles directory` ) );
-    fileUtils.getFilesSync( defaultTemplateDirectory ).forEach( ( file ) => {
-      const sourceFile = defaultTemplateDirectory + '/' + file;
-      const targetFile = outDir + '/' + file;
-      fs.copyFile( sourceFile, targetFile, function ( err ) {
-        if ( err ) throw err;
-        console.log( `Copied ${sourceFile} to ${targetFile}` );
-      } );
-    } );
-  }
-
+  } );
 }

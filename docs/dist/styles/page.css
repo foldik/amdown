@@ -67,6 +67,15 @@ strong {
   font-weight: 700;
 }
 
+a {
+  text-decoration: none;
+  color: #40C4FF;
+}
+
+a:visited {
+  color: #40C4FF;
+}
+
 ul {
   padding: 0 0.5rem;
 }
