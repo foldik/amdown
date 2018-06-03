@@ -105,7 +105,7 @@ If you use nested lists make sure that you use only one space for the different 
  public class Main {
 
    public static void main(String[] args) {
-     System.out.println("Hello m-down!");
+     System.out.println("Hello World!");
    }
 
  }
@@ -116,7 +116,7 @@ If you use nested lists make sure that you use only one space for the different 
 public class Main {
 
   public static void main(String[] args) {
-    System.out.println("Hello m-down!");
+    System.out.println("Hello World!");
   }
 
 }

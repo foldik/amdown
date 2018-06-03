@@ -52,6 +52,7 @@ p {
 pre {
   padding: 1rem;
   margin: 0.75rem 1rem;
+  line-height: 1.2rem;
   background-color: #263238;
   font-family: monospace, sans-serif;
   color: white;

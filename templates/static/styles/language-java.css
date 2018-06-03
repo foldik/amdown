@@ -1,0 +1,15 @@
+.language-java>.keyword, .language-java>.semicolon {
+    color: #F57C00 !important;
+}
+
+.language-java>.string {
+    color: #2E7D32 !important;
+}
+
+.language-java>.annotation {
+    color: #FFEB3B !important;
+}
+
+.language-java>.number {
+    color: #40C4FF !important;
+}
