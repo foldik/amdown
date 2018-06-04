@@ -48,5 +48,13 @@ public class Main {
 ```SQL
 SELECT velit
 FROM AMET AS a
-WHERE a.lorem == "sit" AND a.sit == "amet";
+WHERE a.lorem == 'sit' AND a.sit == 'amet';
+```
+
+## Sit sql
+
+```sql
+select velit
+from AMET as a
+where a.lorem == 'sit' and a.sit == 'amet';
 ```

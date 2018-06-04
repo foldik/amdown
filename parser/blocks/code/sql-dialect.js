@@ -76,5 +76,6 @@ separators.set( '=', 'equalSign' );
 
 exports.dialect = {
   keywords: keywords,
-  separators: separators
+  separators: separators,
+  isCaseSensitive: false
 }

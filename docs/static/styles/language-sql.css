@@ -1,4 +1,4 @@
-.language-sql>.keyword, .language-sql>.semicolon {
+.language-sql>.keyword {
     color: #E040FB !important;
 }
 

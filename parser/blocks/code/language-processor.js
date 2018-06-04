@@ -1,6 +1,7 @@
 exports.process = function ( code, dialect ) {
   const keywords = dialect.keywords;
   const separators = dialect.separators;
+  const isCaseSensitive = dialect.isCaseSensitive;
 
   let elements = [],
     cache = '',
@@ -18,8 +19,16 @@ exports.process = function ( code, dialect ) {
     return !isNaN( parseFloat( n ) ) && isFinite( n );
   };
 
+  const transfromIfCaseSensitive = function ( cache ) {
+    if ( isCaseSensitive ) {
+      return cache;
+    } else {
+      return cache.toUpperCase();
+    }
+  }
+
   const evaluateText = function ( ch ) {
-    if ( keywords.has( cache ) ) {
+    if ( keywords.has( transfromIfCaseSensitive( cache ) ) ) {
       add( 'keyword', cache );
     } else {
       if ( isNumber( cache ) ) {
@@ -38,12 +47,13 @@ exports.process = function ( code, dialect ) {
 
   while ( codeCharacters.length > 0 ) {
     const ch = codeCharacters.shift();
-    if ( ch === '"' ) {
+    if ( ch === '"' || ch === '\'') {
+      const terminateChar = ch;
       let stringContent = ch;
       let tmpChar = '';
       let completed = false;
       while ( codeCharacters.length > 0 && !completed ) {
-        if ( ( tmpChar = codeCharacters.shift() ) === '"' && stringContent.charAt( stringContent.length - 1 ) !== '\\' ) {
+        if ( ( tmpChar = codeCharacters.shift() ) === terminateChar && stringContent.charAt( stringContent.length - 1 ) !== '\\' ) {
           completed = true;
         }
         stringContent = stringContent + tmpChar;
