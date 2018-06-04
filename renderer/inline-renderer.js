@@ -11,7 +11,7 @@ exports.render = function ( paragraph ) {
     } else if ( item.type === 'strong' ) {
       content += '<span><strong>' + item.value + '</strong></span>';
     } else {
-      content += '<span>' + item.value + '</span>';
+      content += item.value;
     }
   }
   return content;
