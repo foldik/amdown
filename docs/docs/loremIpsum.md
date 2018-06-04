@@ -45,7 +45,7 @@ public class Main {
 
 ## Sit SQL
 
-```SQL
+```sql
 SELECT velit
 FROM AMET AS a
 WHERE a.lorem == 'sit' AND a.sit == 'amet';
@@ -57,4 +57,16 @@ WHERE a.lorem == 'sit' AND a.sit == 'amet';
 select velit
 from AMET as a
 where a.lorem == 'sit' and a.sit == 'amet';
+```
+
+## Amet JavaScript
+
+```javascript
+'use strict';
+
+function hello( name ) {
+  console.log('Hello ' + name + '!');
+}
+
+hello( 'Bob' );
 ```

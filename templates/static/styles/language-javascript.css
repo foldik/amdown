@@ -1,0 +1,15 @@
+.language-javascript>.keyword {
+    color: #E040FB !important;
+}
+
+.language-javascript>.string {
+    color: #43A047 !important;
+}
+
+.language-javascript>.annotation {
+    color: #FFEB3B !important;
+}
+
+.language-javascript>.number {
+    color: #64B5F6 !important;
+}
