@@ -44,7 +44,7 @@ h6 {
 }
 
 p {
-  line-height: 1.5rem;
+  line-height: 1.6rem;
   padding: 0.75rem 1rem;
   text-align: justify;
 }
@@ -57,6 +57,16 @@ pre {
   font-family: monospace, sans-serif;
   color: white;
   border-radius: 4px;
+}
+
+p>code {
+  background-color: #90A4AE;
+  color: #263238;
+  border: 1px solid #263238;
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+  font-family: monospace, sans-serif;
+  font-weight: bold;
 }
 
 i {
@@ -78,13 +88,17 @@ a:visited {
 }
 
 ul {
-  padding: 0 0.5rem;
+  padding: 0.5rem 1.5rem;
 }
 
 ul>li {
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   list-style-position: inside;
   list-style-type: disc;
+}
+
+li>ul {
+  padding: 0.5rem 1.5rem 0rem;
 }
 
 img {
@@ -101,4 +115,11 @@ blockquote {
   background-color: #CFD8DC;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: 1px solid black;
 }

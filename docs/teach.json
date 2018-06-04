@@ -11,6 +11,10 @@
     {
       "link": "/markdownSyntax",
       "name": "Markdown Syntax"
+    },
+    {
+      "link": "/loremIpsum",
+      "name": "Lorem Ipsum"
     }
   ]
 }
