@@ -23,3 +23,30 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 <iframe src="https://foldik.github.io/teach/docs/dist/index.html#!/page/markdownSyntax">
   <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
 </iframe>
+
+## Sit Java
+
+```java
+package ipsum.lorem;
+
+@Sit(ir = "norem")
+public class Main {
+
+  public static void main(String[] args) {
+    for (int i = 0; i < 10; i++) {
+      for (int j = 0; j < 10; j++) {
+        System.out.print("|" + Math.random());
+      }
+      System.out.print("|\n");
+    }
+  }
+}
+```
+
+## Sit SQL
+
+```SQL
+SELECT velit
+FROM AMET AS a
+WHERE a.lorem == "sit" AND a.sit == "amet";
+```
