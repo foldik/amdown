@@ -1,0 +1,15 @@
+.language-sql>.keyword, .language-sql>.semicolon {
+    color: #E040FB !important;
+}
+
+.language-sql>.string {
+    color: #43A047 !important;
+}
+
+.language-sql>.annotation {
+    color: #FFEB3B !important;
+}
+
+.language-sql>.number {
+    color: #64B5F6 !important;
+}
