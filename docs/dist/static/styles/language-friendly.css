@@ -1,0 +1,10 @@
+.language-friendly {
+  display: block;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-family: 'Waiting for the Sunrise', cursive;
+}
+
+.language-friendly.center {
+  text-align: center;
+}

@@ -9,6 +9,10 @@
       "name": "Getting Started"
     },
     {
+      "link": "/code",
+      "name": "Code"
+    },
+    {
       "link": "/markdownSyntax",
       "name": "Markdown Syntax"
     },
